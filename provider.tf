@@ -1,5 +1,5 @@
 # Configure the Google Cloud provider
 provider "google" {
-  project = "${terraform.workspace}"
+  project = "yoshimura-test"
   region  = "asia-northeast1"
 }
