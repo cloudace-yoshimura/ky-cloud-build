@@ -1,9 +1,6 @@
 # 各プロジェクト用のトリガー作成後に「代入変数」で以下を設定
 # _GCP_PROJECT = tp-fclinebiz-PROJECT_NAME
 steps:
-    #  - name: asia.gcr.io/tp-fclinebiz-cmn/alpine-gcloud-bash:latest
-    #    args: ['bash', './bin/kms.sh', 'decrypt']
-    #    id: bash-kms.sh
   - name: 'hashicorp/terraform:0.11.7'
     args: ['init']
     id: terraform-init
@@ -13,9 +10,6 @@ steps:
   - name: 'hashicorp/terraform:0.11.7'
     args: ['apply', '-auto-approve']
     id: terraform-apply
-
-  - name: 'hashicorp/terraform:0.11.7'
-    args: ['apply', '-auto-approve']
-    id: terraform-apply
   - name: gcr.io/cloud-builders/gcloud
     args: ['source', 'repos', 'clone', 'default']
+    id: gcloud-clone
