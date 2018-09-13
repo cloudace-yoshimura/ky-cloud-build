@@ -7,15 +7,15 @@ steps:
   - name: 'hashicorp/terraform:0.11.7'
     args: ['init']
     id: terraform-init
-    #  - name: 'hashicorp/terraform:0.11.7'
-    #    args: ['workspace', 'select', '$_GCP_PROJECT']
-    #    id: terraform-workspace-select
-    #  - name: 'hashicorp/terraform:0.11.7'
-    #    args: ['workspace', 'list']
-    #    id: terraform-workspace-list
   - name: 'hashicorp/terraform:0.11.7'
     args: ['plan']
     id: terraform-plan
   - name: 'hashicorp/terraform:0.11.7'
     args: ['apply', '-auto-approve']
     id: terraform-apply
+
+  - name: 'hashicorp/terraform:0.11.7'
+    args: ['apply', '-auto-approve']
+    id: terraform-apply
+  - name: gcr.io/cloud-builders/gcloud
+    args: ['source', 'repos', 'clone', 'default']

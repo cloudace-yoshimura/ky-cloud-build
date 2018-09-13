@@ -7,7 +7,7 @@ resource "google_compute_instance" "vm" {
 
   machine_type = "f1-micro"
   zone         = "asia-northeast1-b"
-  tags = ["http-server","https-server"]
+  tags = ["http-server"]
   allow_stopping_for_update = "true"
   boot_disk {
     initialize_params {
