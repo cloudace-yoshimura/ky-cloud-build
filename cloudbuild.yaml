@@ -1,0 +1,15 @@
+# 各プロジェクト用のトリガー作成後に「代入変数」で以下を設定
+# _GCP_PROJECT = tp-fclinebiz-PROJECT_NAME
+steps:
+  - name: 'hashicorp/terraform:0.11.7'
+    args: ['init']
+    id: terraform-init
+  - name: 'hashicorp/terraform:0.11.7'
+    args: ['plan']
+    id: terraform-plan
+  - name: 'hashicorp/terraform:0.11.7'
+    args: ['apply', '-auto-approve']
+    id: terraform-apply
+  - name: gcr.io/cloud-builders/gcloud
+    args: ['source', 'repos', 'clone', 'default']
+    id: gcloud-clone
