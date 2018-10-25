@@ -10,9 +10,9 @@ steps:
     args: ['apply', '-auto-approve']
     id: terraform-apply
  - name: 'gcr.io/cloud-builders/gcloud'
-  entrypont: bash
-  args:
-  - '-c'
-  - | 
-  gcloud compute instances list
+   entrypoint: '/bin/bash'
+   args: [
+    '-c',
+    ' gcloud compute instances list',
+  ]
 
