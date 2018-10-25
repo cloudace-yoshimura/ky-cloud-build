@@ -1,9 +1,7 @@
-# 各プロジェクト用のトリガー作成後に「代入変数」で以下を設定
 steps:
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: bash
-    args: 
-    - -c
-    - |
-      gcloud compute instances list
-      gcloud compute networks list
+# 各プロジェクト用のトリガー作成後に「代入変数」で以下を設定
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-f', 'Dockerfile', '--tag=gcr.io/$PROJECT_ID/cb-sample-server:master', '.']
+# 作成したcb-sample-serverイメージをPUSHする
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "gcr.io/$PROJECT_ID/cb-sample-server:master"]
