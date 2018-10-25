@@ -6,3 +6,4 @@ steps:
     - -c
     - |
       gcloud compute instances list
+      gcloud compute networks list
