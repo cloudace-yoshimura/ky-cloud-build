@@ -9,10 +9,10 @@ steps:
   - name: 'hashicorp/terraform:0.11.7'
     args: ['apply', '-auto-approve']
     id: terraform-apply
- - name: 'gcr.io/cloud-builders/gcloud'
-   entrypoint: '/bin/bash'
-   args: [
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: '/bin/bash'
+    args: [
     '-c',
     ' gcloud compute instances list',
-  ]
+   ]
 
