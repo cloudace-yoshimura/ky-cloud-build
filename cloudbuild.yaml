@@ -7,3 +7,4 @@ steps:
       gcloud compute instances list
       gcloud compute networks list
       gcloud config list
+      gcloud projects list
