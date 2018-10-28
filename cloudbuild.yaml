@@ -1,8 +1,8 @@
 steps:
-steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: bash
     args: 
     - -c
     - |
       gcloud config list
+    id: Who am IAM
