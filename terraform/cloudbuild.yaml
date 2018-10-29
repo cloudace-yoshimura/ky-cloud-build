@@ -1,0 +1,10 @@
+steps:
+  - name: 'hashicorp/terraform:0.11.7'
+    args: ['init']
+    id: terraform-init
+  - name: 'hashicorp/terraform:0.11.7'
+    args: ['plan']
+    id: terraform-plan
+  - name: 'hashicorp/terraform:0.11.7'
+    args: ['apply', '-auto-approve']
+    id: terraform-apply
