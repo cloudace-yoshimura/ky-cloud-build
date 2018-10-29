@@ -1,0 +1,16 @@
+steps:
+# GKEクラスターに接続
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: bash
+    args:
+    - -c
+    - |
+      gcloud beta container clusters get-credentials your-first-cluster-1 --region asia-northeast1 --project yoshimura-test
+# GKE操作
+  - name: 'gcr.io/cloud-builders/kubectl'
+    entrypoint: bash
+    args:
+    - -c
+    - |
+      kubectl get node
+
