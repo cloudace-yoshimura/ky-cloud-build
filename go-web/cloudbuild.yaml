@@ -1,0 +1,5 @@
+steps:
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ['build', '-f', 'Dockerfile', '--tag=gcr.io/yoshimura-test/sample:master', '.']
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ["push", "gcr.io/yoshimura-test/sample:master"]
