@@ -1,14 +1,14 @@
 # CloudSQL接続方法
-公式リファレンス 
+公式リファレンス　
 https://cloud.google.com/sql/docs/container-engine-connect?hl=ja  
 
-##CloudSQLをつくる 
+##  事前作業 
 ### CloudSQL インスタンス作成
 ### CloudSQL ユーザー作成
 ### CloudSQL Admin API有効化
 ###  サービスアカウントと鍵生成
 CloudSQLprocxyがCloudSQLへ接続するために必要 
-
+鍵生成コマンド 
 ```
 gcloud iam service-accounts keys create \                                           
     key.json \
@@ -18,6 +18,10 @@ gcloud iam service-accounts keys create \
 ## CloudSQL procxyをつくる
 ### CloudSQL接続用鍵ファイルをk8sのsecretに格納 
 $kubectl create secret generic cloudsql-instance-credentials --from-file=credentials.json=key.json
+
+yaml解説
+
+
 
 
 
