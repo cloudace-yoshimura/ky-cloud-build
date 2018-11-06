@@ -32,7 +32,7 @@ yaml解説
 
 
 ### DB接続ユーザ用
-接続用のDBアカウント情報もsecret化して環境変数で参照する形にすると便利、安全
+接続用のDBアカウント情報もsecret化して環境変数で参照する形にすると便利、安全  
 `
 $kubectl create secret generic cloudsql-db-credentials --from-literal=username=[username] --from-literal=password=[password]
 `
