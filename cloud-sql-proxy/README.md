@@ -3,9 +3,9 @@
 https://cloud.google.com/sql/docs/container-engine-connect?hl=ja  
 　
 ## 作業概要 
-①CloudSQLのサービスアカウントの鍵を作る 
-②k8s.yamlのインスタンス名編集 
-③cloudbuild! 
+### ①CloudSQLのサービスアカウントの鍵を作る 
+### ②k8s.yamlのインスタンス名編集 
+### ③cloudbuild! 
 ↓ 
 cloudsql-proxyが誕生 
 cloudsql-proxyに3306で接続しにいく 
