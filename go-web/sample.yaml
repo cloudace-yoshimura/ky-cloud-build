@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-web
+spec:
+  selector:
+    matchLabels:
+      app: go-web
+      tier: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: go-web
+        tier: frontend
+    spec:
+      containers:
+      - name: go-web
+        image: gcr.io/yoshimura-test/go-web:1.2
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: go-web
+spec:
+  type: NodePort
+  selector:
+    app: go-web
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: ingress
+    annotations:
+        kubernetes.io/ingress.global-static-ip-name: "ingress"
+    labels:
+        app: ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /go-web
+        backend:
+          serviceName: go-web
+          servicePort: 8080

@@ -2,14 +2,19 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, World")
+func hello_world(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "My name is yoshimura")
+	fmt.Printf("アクセスきたー\n")
 }
 
 func main() {
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/", hello_world)
+
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
 }

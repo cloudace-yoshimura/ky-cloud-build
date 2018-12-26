@@ -5,6 +5,7 @@ RUN go build -o hello main.go
 
 FROM alpine
 COPY --from=build-env /work/hello /usr/local/bin/hello
-ENTRYPOINT ["/usr/local/bin/hello"]
+#ENTRYPOINT ["/usr/local/bin/hello"]
+CMD /usr/local/bin/hello
 
-EXPOSE 8080
+EXPOSE 8080:8080
